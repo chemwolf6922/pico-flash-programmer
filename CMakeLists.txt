@@ -19,6 +19,7 @@ pico_sdk_init()
 # Add executable
 add_executable(flash_programmer
         main.c
+        spi_flash.c
         )
 
 target_include_directories(flash_programmer PRIVATE 
@@ -32,6 +33,7 @@ pico_enable_stdio_uart(flash_programmer 0)
 # pull in common dependencies
 target_link_libraries(flash_programmer PUBLIC
         pico_stdlib 
+        hardware_spi
         )
 
 # create map/bin/hex file etc.
